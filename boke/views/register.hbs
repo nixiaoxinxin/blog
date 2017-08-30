@@ -1,0 +1,61 @@
+<div class="formArea">
+    <div class="fa-tit">用户注册</div>
+    <div class="fa-con">
+        <div class="inp-group">
+            <label for="">账号：</label>
+            <div class="inp">
+                <input type="text" placeholder="请输入您的账号"class="username">
+            </div>
+        </div>
+
+        <div class="inp-group">
+            <label for="">密码：</label>
+            <div class="inp">
+                <input type="password" placeholder="请输入您的密码"class="password">
+            </div>
+        </div>
+        <div class="inp-group bts">
+            <button class="btn green fr">立即注册</button>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script>
+<script>
+    $(function(){
+        $("header").hide();
+        $("footer").hide();
+    })
+
+</script>
+<script>
+    function el(name){
+        return document.querySelector(name);
+    }
+    var fa = el('.formArea');
+
+    fa.style.marginTop = - fa.clientHeight/2 + "px";
+    window.onresize = function(){
+        fa.style.marginTop = - fa.clientHeight/2 + "px";
+    }
+    $(function () {
+        $('.btn').click(function () {
+            var data={
+                'username':$('.username').val(),
+                'password':$('.password').val()
+            }
+            if(data.username!=''&& data.password!=''){
+                $.post('/register', data, function(data){
+                    console.log(data); // 没有任何数据传递
+                    if(data == 'ok'){
+                        alert('注册成功！');
+                        window.location='/login'
+                    } else {
+                        alert('注册失败！');
+                    };
+                });
+            }else{
+                alert('用户名或密码不能为空')
+            }
+        })
+    })
+    </script>

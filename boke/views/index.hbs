@@ -1,0 +1,59 @@
+<aside>
+    <h3>归档</h3>
+    <ul>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+        <li><a href="">2012年02月</a></li>
+    </ul>
+    <div class="loginNow">
+        立即登录
+    </div>
+</aside>
+<div class="content">
+    <ul class="artList">
+        {{#each list}}
+            <li>
+                <a class="img" href="/list/?search={{artTit}}">
+                    <img src="images/upload/test.png" alt="{{artTit}}">
+                </a>
+                <div class="artDetail">
+                    <h4 class="artTit">
+                        {{artTit}}
+                    </h4>
+                    <span class="des">
+							{{artDes}}...&nbsp;&nbsp;<a class="mores" href="/list/?search={{artTit}}">[查看全文]</a>
+						</span>
+                    <div class="aboutArt">
+                        <span>作者：{{artAuthor}}</span>&nbsp;&nbsp;
+                        <span>发表时间：{{artDate}}</span>&nbsp;&nbsp;
+                        <span>阅读量：{{artCount}}</span>
+                    </div>
+                </div>
+            </li>
+        {{/each}}
+
+    </ul>
+
+    <div class="page">
+        <button class="prev">上一页</button>
+        <ul>
+
+            {{#each pages}}
+                <li><a href="/?page={{this}}">{{this}}</a></li>
+            {{/each}}
+
+        </ul>
+        <button class="next">下一页</button>
+        <span>跳转到第</span>
+        <div class="inp">
+            <input type="text" placeholder="1"class="inp1">
+        </div>
+        <span>页</span>
+        <button class="loadPage">确定</button>
+    </div>
+</div>
+<script src="js/page.js"></script>
