@@ -11,7 +11,7 @@
     	        <li><a href="">2012年02月</a></li>
 	    	</ul>
 	    	<div class="loginNow">
-	    		立即登出
+                <a href="/">关于我的</a>
 	    	</div>
 	    </aside>
 		<div class="content">
@@ -83,5 +83,34 @@
 			</article>				    				
 		</div>	
 		<script src="js/jquery-1.9.1.min.js"></script>
-	    <script src="js/write.js"></script>
+        <script src="layer/layer.js"></script>
+	    <!--<script src="js/write.js"></script>-->
+        <script>
+            $(function () {
+                $('.subArt').click(function () {
+                    var data={
+                        'artTit':$('.artTit').val(),
+                        'artAuthor':$('.artAuthor').val(),
+                        'artDate':new Date(),
+                        'artDes':$('.artDes').val(),
+                        'artCount':Math.ceil(Math.random()*400),
+                        'artCon':$('#editor').html()
+                    }
+                    if(data.artTit==''||data.artAuthor==''||data.artDes ==''){
+                        layer.alert('请按需求填写信息')
+                    }else{
+                        $.post('/write',data,function (data) {
+                            if(data =='ok'){
+                                layer.alert('提交成功！')
+                                window.location='/'
+                            }
+                            else {
+                                layer.alert('提交失败！')
+                            }
+                        })
+                    }
+
+                })
+            })
+        </script>
 																		

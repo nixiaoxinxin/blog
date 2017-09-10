@@ -46,6 +46,7 @@ var search=conn.search;
                 res.render('index',{list:datas,pages:nums})
             },(req.query.page-1)*5)
         })
+
 module.exports = router;
 
 

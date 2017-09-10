@@ -10,7 +10,10 @@
         <li><a href="">2012年02月</a></li>
     </ul>
     <div class="loginNow">
-        立即登录
+        <a href="/login">立即登录</a>
+    </div>
+    <div class="loginNow">
+        <a href="/write">我要发布</a>
     </div>
 </aside>
 <div class="content">
@@ -22,13 +25,13 @@
                 </a>
                 <div class="artDetail">
                     <h4 class="artTit">
-                        {{artTit}}
+                        {{this.artTit}}
                     </h4>
                     <span class="des">
-							{{artDes}}...&nbsp;&nbsp;<a class="mores" href="/list/?search={{artTit}}">[查看全文]</a>
+							{{artDes}}...&nbsp;&nbsp;<a class="mores" href="/list/?title={{artTit}}">[查看全文]</a>
 						</span>
                     <div class="aboutArt">
-                        <span>作者：{{artAuthor}}</span>&nbsp;&nbsp;
+                        <span>作者：{{this.artAuthor}}</span>&nbsp;&nbsp;
                         <span>发表时间：{{artDate}}</span>&nbsp;&nbsp;
                         <span>阅读量：{{artCount}}</span>
                     </div>

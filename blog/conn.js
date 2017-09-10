@@ -43,14 +43,15 @@ function insert(colName, fun, query){
                 if(!err){
                     col.insert(query,(function(err, data){
                             if(!err){
-                                if(data.length > 0){
-                                    fun('err');
-                                } else {
-                                    fun('ok');
-                                }
+                                fun('ok')
+                                // if(data.length > 0){
+                                //     fun('err');
+                                // } else {
+                                //     fun('ok');
+                                // }
 
                             } else {
-                                fun('ok');
+                                fun('err');
                             }
                             db.close();
                         })
@@ -121,7 +122,35 @@ function deleteOne(colName, fun, query){
         }
     })
 }
+function findart(colName, fun, query){
+    var datas;
+    db.open(function(err){
+        if(!err){
+            db.collection(colName, function(err, col){
+                if(!err){
+
+                    col.find({'artTit':query}).toArray(function(err, data){
+                        if(!err){
+                            datas=data;
+                            if(data.length > 0){
+                                fun(datas);
+                            } else {
+                                fun('err');
+                            }
+
+                        } else {
+                            fun('err');
+                        }
+                        db.close();
+                    })
+                }
+
+            })
+        }
+    })
+}
 exports.find = find;
 exports.insert=insert;
 exports.search=search;
 exports.deleteOne=deleteOne;
+exports.findart=findart;

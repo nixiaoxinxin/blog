@@ -21,6 +21,7 @@
 		</div>
 	</div>
     <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="layer/layer.js"></script>
 <script>
 $(function(){
 $("header").hide();	
@@ -50,7 +51,7 @@ $(function () {
                 window.location='/'
             }
             else {
-                alert('用户名密码输入错误')
+                layer.alert('用户名密码输入错误')
             }
         })
     })
